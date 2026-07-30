@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mayka | Maa Ka Aasra Seva Sansthan — Jodhpur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Noto+Serif+Devanagari:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --indigo: #536E8C;
+    --indigo-deep: #1E2432;
+    --sandstone: #8FA6BE;
+    --ivory: #F7F3F0;
+    --marigold: #C3446D;
+    --maroon: #8C2F52;
+    --ink: #262A33;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background: var(--ivory);
+    color: var(--ink);
+    font-family: 'Work Sans', 'Noto Sans Devanagari', sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  .hi{font-family:'Noto Serif Devanagari','Fraunces',serif;}
+  h1,h2,h3{font-family:'Fraunces','Noto Serif Devanagari',serif; font-weight:600;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+
+  /* ---------- Arch shape, the site's signature motif: the haveli threshold ---------- */
+  .arch{
+    border-radius: 999px 999px 12px 12px;
+  }
+
+  /* ---------- Nav ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background: rgba(251,243,230,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid rgba(31,78,95,0.12);
+  }
+  .nav-wrap{
+    max-width:1100px; margin:0 auto; padding:14px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{display:flex; align-items:center; gap:10px; font-size:1.15rem; font-weight:600; color:var(--indigo-deep);}
+  .brand-mark{
+    width:34px; height:40px;
+    background: linear-gradient(180deg, var(--marigold), var(--maroon));
+    border-radius: 17px 17px 4px 4px;
+  }
+  nav ul{list-style:none; display:flex; gap:28px;}
+  nav a{font-size:0.95rem; color:var(--indigo-deep); font-weight:500; transition:color .2s;}
+  nav a:hover{color:var(--marigold);}
+  .nav-toggle{display:none; background:none; border:none; font-size:1.5rem; color:var(--indigo-deep); cursor:pointer;}
+
+  @media (max-width:760px){
+    nav ul{
+      position:fixed; top:64px; right:0; left:0;
+      flex-direction:column; gap:0;
+      background:var(--ivory);
+      border-bottom:1px solid rgba(31,78,95,0.15);
+      max-height:0; overflow:hidden; transition:max-height .3s ease;
+    }
+    nav ul.open{max-height:300px;}
+    nav ul li{border-top:1px solid rgba(31,78,95,0.08);}
+    nav a{display:block; padding:16px 24px;}
+    .nav-toggle{display:block;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    max-width:1100px; margin:0 auto;
+    padding: 70px 24px 90px;
+    display:grid; grid-template-columns: 1.1fr 0.9fr; gap:50px; align-items:center;
+  }
+  .hero-eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--maroon); font-weight:600; margin-bottom:18px;
+  }
+  .hero-eyebrow::before{content:''; width:22px; height:1px; background:var(--maroon);}
+  .hero h1{
+    font-size:clamp(2.1rem, 4.2vw, 3.2rem);
+    color:var(--indigo-deep);
+    line-height:1.25;
+    margin-bottom:20px;
+  }
+  .hero h1 .hi{display:block; font-size:1.15em; color:var(--maroon);}
+  .hero p{font-size:1.05rem; color:#4a423b; max-width:46ch; margin-bottom:30px;}
+  .cta-row{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block; padding:13px 26px; border-radius:6px;
+    font-weight:600; font-size:0.95rem; transition:transform .18s, box-shadow .18s;
+  }
+  .btn-primary{background:var(--marigold); color:#fff;}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 8px 20px rgba(224,138,44,0.35);}
+  .btn-outline{border:1.5px solid var(--indigo); color:var(--indigo-deep);}
+  .btn-outline:hover{background:var(--indigo); color:#fff;}
+
+  .hero-visual{
+    position:relative;
+    height:380px;
+    background: linear-gradient(160deg, var(--indigo) 0%, var(--indigo-deep) 100%);
+    border-radius: 200px 200px 16px 16px;
+    overflow:hidden;
+    box-shadow: 0 30px 60px -20px rgba(20,52,63,0.45);
+  }
+  .hero-visual::before{
+    content:'';
+    position:absolute; inset:18px;
+    border: 1px solid rgba(251,243,230,0.35);
+    border-radius: 190px 190px 10px 10px;
+  }
+  .hero-visual .glow{
+    position:absolute; width:220px; height:220px; border-radius:50%;
+    background: radial-gradient(circle, rgba(224,138,44,0.55), transparent 70%);
+    top:-40px; left:50%; transform:translateX(-50%);
+    animation: pulse 6s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%,100%{opacity:0.6; transform:translateX(-50%) scale(1);}
+    50%{opacity:1; transform:translateX(-50%) scale(1.12);}
+  }
+  .hero-visual .quote{
+    position:absolute; bottom:34px; left:32px; right:32px;
+    color:var(--ivory);
+  }
+  .hero-visual .quote .hi{font-size:1.15rem; line-height:1.6;}
+  .hero-visual .quote small{display:block; margin-top:10px; opacity:0.65; font-size:0.75rem; letter-spacing:0.05em;}
+
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr; padding-top:40px;}
+    .hero-visual{order:-1; height:280px;}
+  }
+
+  /* ---------- Section shell ---------- */
+  section{max-width:1100px; margin:0 auto; padding:80px 24px;}
+  .section-head{max-width:640px; margin-bottom:50px;}
+  .section-head .eyebrow{
+    font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--marigold); font-weight:600; margin-bottom:12px; display:block;
+  }
+  .section-head h2{font-size:clamp(1.6rem,3vw,2.2rem); color:var(--indigo-deep);}
+  .section-head p{margin-top:14px; color:#5a5148; font-size:1rem;}
+
+  /* ---------- About / mission ---------- */
+  .about{background:var(--indigo-deep); color:var(--ivory); border-radius:24px; margin:0 24px; max-width:1052px;}
+  .about-inner{padding:70px 40px; max-width:1100px; margin:0 auto;}
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:start;}
+  .about h2{color:var(--ivory);}
+  .pillars{display:flex; gap:0; margin-top:30px;}
+  .pillar{flex:1; padding-right:20px; border-right:1px solid rgba(251,243,230,0.2);}
+  .pillar:last-child{border-right:none;}
+  .pillar .num{font-family:'Fraunces',serif; font-size:1.8rem; color:var(--sandstone); display:block; margin-bottom:6px;}
+  .pillar span{font-size:0.85rem; opacity:0.75; text-transform:uppercase; letter-spacing:0.06em;}
+  .quote-block{
+    border-left:3px solid var(--marigold); padding-left:22px;
+  }
+  .quote-block .hi{font-size:1.3rem; line-height:1.7; color:var(--ivory);}
+  .quote-block .en{margin-top:14px; font-size:0.92rem; opacity:0.7; font-style:italic;}
+  @media (max-width:760px){
+    .about-grid{grid-template-columns:1fr;}
+    .about-inner{padding:50px 26px;}
+    .pillars{flex-wrap:wrap; gap:20px;}
+    .pillar{flex:1 1 45%; border-right:none; padding-right:0;}
+  }
+
+  /* ---------- Services (haveli-arch cards) ---------- */
+  .services-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:22px;
+  }
+  .service-card{
+    background:#fff;
+    border-top-left-radius:120px; border-top-right-radius:120px;
+    border-bottom-left-radius:10px; border-bottom-right-radius:10px;
+    padding:44px 22px 30px;
+    text-align:center;
+    border:1px solid rgba(31,78,95,0.1);
+    transition:transform .25s, box-shadow .25s;
+  }
+  .service-card:hover{transform:translateY(-6px); box-shadow:0 20px 40px -18px rgba(31,78,95,0.25);}
+  .service-icon{
+    width:56px; height:56px; margin:0 auto 18px;
+    border-radius:50%;
+    background:linear-gradient(160deg, var(--marigold), var(--maroon));
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.4rem;
+  }
+  .service-card h3{font-size:1.05rem; color:var(--indigo-deep); margin-bottom:10px;}
+  .service-card .hi{display:block; color:var(--maroon); font-size:0.95rem; margin-bottom:8px;}
+  .service-card p{font-size:0.85rem; color:#6a6156;}
+  @media (max-width:900px){.services-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:520px){.services-grid{grid-template-columns:1fr;}}
+
+  /* ---------- Trust strip ---------- */
+  .trust{
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px;
+    background:var(--sandstone); border-radius:18px; padding:26px 34px; margin-top:10px;
+  }
+  .trust p{color:var(--indigo-deep); font-weight:500; font-size:0.95rem;}
+  .trust .btn-primary{background:var(--indigo-deep);}
+
+  /* ---------- Contact ---------- */
+  .contact-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:40px;
+  }
+  .contact-card{
+    background:#fff; border-radius:18px; padding:36px;
+    border:1px solid rgba(31,78,95,0.1);
+  }
+  .contact-card h3{color:var(--indigo-deep); margin-bottom:18px; font-size:1.1rem;}
+  .contact-row{display:flex; gap:14px; align-items:flex-start; margin-bottom:18px;}
+  .contact-row .ic{
+    width:38px; height:38px; border-radius:50%; flex-shrink:0;
+    background:var(--ivory); border:1px solid rgba(31,78,95,0.15);
+    display:flex; align-items:center; justify-content:center; font-size:1rem;
+  }
+  .contact-row div p{font-size:0.9rem; color:#5a5148;}
+  .contact-row div strong{display:block; color:var(--indigo-deep); font-size:0.95rem; margin-bottom:2px;}
+  .map-note{
+    height:100%; min-height:220px;
+    background: repeating-linear-gradient(135deg, rgba(31,78,95,0.06) 0 2px, transparent 2px 14px), var(--indigo-deep);
+    border-radius:18px; display:flex; align-items:center; justify-content:center; text-align:center; padding:30px;
+    color:var(--ivory);
+  }
+  @media (max-width:760px){.contact-grid{grid-template-columns:1fr;}}
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--indigo-deep); color:rgba(251,243,230,0.7);
+    padding:40px 24px; text-align:center; font-size:0.85rem;
+  }
+  footer strong{color:var(--ivory);}
+
+  /* reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    .glow{animation:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible{outline:2px solid var(--marigold); outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <div class="brand"><span class="brand-mark"></span> Mayka <span class="hi" style="font-size:0.8em; opacity:0.7;">| माँ का आसरा</span></div>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+    <nav>
+      <ul id="navList">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="https://instagram.com/mayka_maakaaasra" target="_blank" rel="noopener">Instagram ↗</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div>
+    <span class="hero-eyebrow">Women Shelter NGO · Jodhpur, Rajasthan</span>
+    <h1>A safe place for<br>every woman.<span class="hi">माँ का आसरा।</span></h1>
+    <p>Mayka — Maa Ka Aasra Seva Sansthan offers shelter, support and strength to women who need a place to stand again. Home-like environment, mental support, and a path to self-reliance.</p>
+    <div class="cta-row">
+      <a href="#contact" class="btn btn-primary">Reach Out for Help</a>
+      <a href="https://instagram.com/mayka_maakaaasra" target="_blank" rel="noopener" class="btn btn-outline">Follow the Journey</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="glow"></div>
+    <div class="quote">
+      <p class="hi">हर बेटी को ऐसा ठिकाना मिले,<br>जहाँ उसकी मजबूरी नहीं,<br>उसकी हिम्मत देखी जाए।</p>
+      <small>MAYKA · SEVA SANSTHAN, JODHPUR</small>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="about-inner">
+    <div class="about-grid">
+      <div>
+        <span class="hero-eyebrow" style="color:var(--sandstone);">Our Mission</span>
+        <h2>Not just a shelter — a new family.</h2>
+        <p style="margin-top:16px; opacity:0.85; max-width:44ch;">यह सिर्फ़ एक संस्था नहीं, बल्कि उन महिलाओं के लिए एक नया परिवार है, जिन्हें जीवन में सहारे की ज़रूरत है।</p>
+        <div class="pillars">
+          <div class="pillar"><span class="num">🏠</span><span>Shelter<br>आश्रय</span></div>
+          <div class="pillar"><span class="num">🤝</span><span>Support<br>सहयोग</span></div>
+          <div class="pillar"><span class="num">💜</span><span>Strength<br>शक्ति</span></div>
+        </div>
+      </div>
+      <div class="quote-block">
+        <p class="hi">"टूटे हुए हौसलों को फिर से उड़ान सिखाते हैं,<br>हर बेटी मुस्कुराये यही हमारा संकल्प है।"</p>
+        <p class="en">We teach broken spirits to fly again — every daughter's smile is our resolve.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-head">
+    <span class="eyebrow">What We Offer</span>
+    <h2>Four pillars of Mayka's care</h2>
+    <p>From the first day of arrival to standing independently — every stage is walked together.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🏠</div>
+      <span class="hi">सुरक्षित आश्रय</span>
+      <h3>Safe Shelter</h3>
+      <p>A home-like environment, not an institution.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💬</div>
+      <span class="hi">परामर्श सहायता</span>
+      <h3>Counselling Support</h3>
+      <p>Mental and emotional support to heal and rebuild.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📚</div>
+      <span class="hi">शिक्षा एवं प्रशिक्षण</span>
+      <h3>Education & Training</h3>
+      <p>Skills and learning that lead toward self-reliance.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💪</div>
+      <span class="hi">महिला सशक्तिकरण</span>
+      <h3>Women Empowerment</h3>
+      <p>A fresh start, built with dignity and respect.</p>
+    </div>
+  </div>
+
+  <div class="trust">
+    <p>Follow @mayka_maakaaasra for stories, updates and ways to help.</p>
+    <a href="https://instagram.com/mayka_maakaaasra" target="_blank" rel="noopener" class="btn btn-primary">Visit Instagram</a>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-head">
+    <span class="eyebrow">Get in Touch</span>
+    <h2>Reach Mayka Seva Sansthan</h2>
+    <p>Whether you need shelter, want to volunteer, or wish to support our work — we're here.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <h3>Contact Details</h3>
+      <div class="contact-row">
+        <div class="ic">📍</div>
+        <div><strong>Location</strong><p>Jodhpur, Rajasthan, India</p></div>
+      </div>
+      <div class="contact-row">
+        <div class="ic">📷</div>
+        <div><strong>Instagram</strong><p>@mayka_maakaaasra</p></div>
+      </div>
+      <div class="contact-row">
+        <div class="ic">📞</div>
+        <div><strong>Phone / WhatsApp</strong><p>Add your contact number here</p></div>
+      </div>
+      <div class="contact-row">
+        <div class="ic">✉️</div>
+        <div><strong>Email</strong><p>contact@mayakaakaaasra.in</p></div>
+      </div>
+      <a href="https://instagram.com/mayka_maakaaasra" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:10px;">Message on Instagram</a>
+    </div>
+    <div class="map-note">
+      <p>Add a Google Maps embed or your registered office address here.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <strong>Mayka — Maa Ka Aasra Seva Sansthan</strong><br>
+  Jodhpur, Rajasthan · A Safe Place for Every Woman<br>
+  © 2026 Mayka Seva Sansthan. All rights reserved.
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const list = document.getElementById('navList');
+  toggle.addEventListener('click', () => list.classList.toggle('open'));
+  document.querySelectorAll('#navList a').forEach(a => a.addEventListener('click', () => list.classList.remove('open')));
+</script>
+
+</body>
+</html>

@@ -304,7 +304,63 @@
   footer strong{color:var(--ivory);}
 
   /* reduced motion */
+  /* ---------- Scroll reveal (premium, subtle) ---------- */
+  .reveal{
+    opacity:0; transform:translateY(28px);
+    transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
+    will-change: opacity, transform;
+  }
+  .reveal.in-view{opacity:1; transform:translateY(0);}
+  .reveal-stagger.in-view .stagger-child{opacity:1; transform:translateY(0);}
+  .stagger-child{
+    opacity:0; transform:translateY(22px);
+    transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+  }
+  .stagger-child:nth-child(1){transition-delay:0.05s;}
+  .stagger-child:nth-child(2){transition-delay:0.15s;}
+  .stagger-child:nth-child(3){transition-delay:0.25s;}
+  .stagger-child:nth-child(4){transition-delay:0.35s;}
+
+  /* ---------- Refined hover / interaction polish ---------- */
+  .btn{transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s cubic-bezier(0.16,1,0.3,1), background-color 0.3s ease;}
+  .btn-primary:hover, .btn-gold:hover{transform:translateY(-3px) scale(1.015);}
+  .btn-outline{transition: all 0.3s cubic-bezier(0.16,1,0.3,1);}
+  .btn-outline:hover{transform:translateY(-3px);}
+  nav a{position:relative;}
+  nav a::after{
+    content:''; position:absolute; left:0; right:100%; bottom:-4px; height:1.5px;
+    background:var(--marigold); transition:right 0.35s cubic-bezier(0.16,1,0.3,1);
+  }
+  nav a:hover::after{right:0;}
+  .service-card{transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), box-shadow 0.45s cubic-bezier(0.16,1,0.3,1);}
+  .contact-card{transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s cubic-bezier(0.16,1,0.3,1);}
+  .contact-card:hover{transform:translateY(-4px); box-shadow:0 24px 44px -22px rgba(31,78,95,0.28);}
+  .faq-item{transition: box-shadow 0.35s ease, border-color 0.35s ease;}
+  .faq-item:hover{border-color:rgba(140,47,82,0.35);}
+  .faq-item summary .plus{transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), background-color 0.3s ease, color 0.3s ease;}
+  .faq-item summary:hover .plus{background:var(--marigold); color:#fff; border-color:var(--marigold);}
+  .hero-visual{
+    animation: heroIn 1.1s cubic-bezier(0.16,1,0.3,1) both;
+  }
+  @keyframes heroIn{
+    from{opacity:0; transform:translateY(18px) scale(0.98);}
+    to{opacity:1; transform:translateY(0) scale(1);}
+  }
+  .hero > div:first-child > *{
+    animation: fadeInUp 0.8s cubic-bezier(0.16,1,0.3,1) both;
+  }
+  .hero > div:first-child > *:nth-child(1){animation-delay:0.05s;}
+  .hero > div:first-child > *:nth-child(2){animation-delay:0.15s;}
+  .hero > div:first-child > *:nth-child(3){animation-delay:0.25s;}
+  .hero > div:first-child > *:nth-child(4){animation-delay:0.35s;}
+  @keyframes fadeInUp{
+    from{opacity:0; transform:translateY(16px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+
   @media (prefers-reduced-motion: reduce){
+    .reveal, .stagger-child{opacity:1 !important; transform:none !important; transition:none !important;}
+    .hero-visual, .hero > div:first-child > *{animation:none !important; opacity:1 !important; transform:none !important;}
     html{scroll-behavior:auto;}
   }
 
@@ -354,7 +410,7 @@
 </section>
 
 <section aria-label="Her story">
-  <div class="story-panel">
+  <div class="story-panel reveal">
     <div class="story-photo arch-photo" style="background:linear-gradient(160deg, var(--indigo), var(--indigo-deep)); display:flex; align-items:center; justify-content:center;">
       <span class="hi" style="color:var(--gold-soft); font-size:1.3rem; padding:20px; text-align:center;">पहला कदम</span>
     </div>
@@ -367,7 +423,7 @@
   </div>
 </section>
 
-<section id="about" class="about">
+<section id="about" class="about reveal">
   <div class="about-inner">
     <div class="about-grid">
       <div>
@@ -392,7 +448,7 @@
 </section>
 
 <section aria-label="How support unfolds">
-  <div class="story-panel rev">
+  <div class="story-panel rev reveal">
     <div class="story-photo arch-photo" style="background:linear-gradient(160deg, var(--sandstone), var(--indigo)); display:flex; align-items:center; justify-content:center;">
       <span class="hi" style="color:#fff; font-size:1.3rem; padding:20px; text-align:center;">अपनापन</span>
     </div>
@@ -411,8 +467,8 @@
     <h2>Four pillars of Mayka's care</h2>
     <p>From the first day of arrival to standing independently — every stage is walked together.</p>
   </div>
-  <div class="services-grid">
-    <div class="service-card">
+  <div class="services-grid reveal-stagger reveal">
+    <div class="service-card stagger-child">
       <div class="service-photo" style="background:linear-gradient(160deg, var(--indigo), var(--indigo-deep));">
         <span class="glyph">🏠</span>
       </div>
@@ -420,7 +476,7 @@
       <h3>Safe Shelter</h3>
       <p>A home-like environment, not an institution.</p>
     </div>
-    <div class="service-card">
+    <div class="service-card stagger-child">
       <div class="service-photo" style="background:linear-gradient(160deg, var(--marigold), var(--maroon));">
         <span class="glyph">💬</span>
       </div>
@@ -428,7 +484,7 @@
       <h3>Counselling Support</h3>
       <p>Mental and emotional support to heal and rebuild.</p>
     </div>
-    <div class="service-card">
+    <div class="service-card stagger-child">
       <div class="service-photo" style="background:linear-gradient(160deg, var(--gold), var(--maroon));">
         <span class="glyph">📚</span>
       </div>
@@ -436,7 +492,7 @@
       <h3>Education & Training</h3>
       <p>Skills and learning that lead toward self-reliance.</p>
     </div>
-    <div class="service-card">
+    <div class="service-card stagger-child">
       <div class="service-photo" style="background:linear-gradient(160deg, var(--sandstone), var(--indigo));">
         <span class="glyph">💪</span>
       </div>
@@ -447,7 +503,7 @@
   </div>
 </section>
 
-<div class="community" style="background:linear-gradient(160deg, var(--indigo-deep), var(--maroon));">
+<div class="community reveal" style="background:linear-gradient(160deg, var(--indigo-deep), var(--maroon));">
   <div class="community-inner">
     <span class="eyebrow">Together, We Are Stronger</span>
     <h2>Behind every woman who stands again, there's a circle that never let go.</h2>
@@ -470,7 +526,7 @@
     <p class="hi" style="color:var(--maroon); margin-top:10px; font-size:1.05rem;">आपका एक योगदान किसी की ज़िंदगी बदल सकता है।</p>
   </div>
 
-  <div class="contact-grid">
+  <div class="contact-grid reveal">
     <div class="contact-card">
       <h3>Donate via UPI</h3>
       <div style="background:var(--ivory); border-radius:12px; padding:24px; text-align:center; border:1px dashed rgba(31,78,95,0.3);">
@@ -512,7 +568,7 @@
     <p>Answers to what people usually ask us.</p>
   </div>
 
-  <div class="faq-list">
+  <div class="faq-list reveal">
     <details class="faq-item" open>
       <summary>How can a woman get shelter at Mayka? <span class="plus">+</span></summary>
       <div class="faq-answer">
@@ -569,7 +625,7 @@
     <h2>Reach Mayka Seva Sansthan</h2>
     <p>Whether you need shelter, want to volunteer, or wish to support our work — we're here.</p>
   </div>
-  <div class="contact-grid">
+  <div class="contact-grid reveal">
     <div class="contact-card">
       <h3>Contact Details</h3>
       <div class="contact-row">
@@ -607,6 +663,22 @@
   const list = document.getElementById('navList');
   toggle.addEventListener('click', () => list.classList.toggle('open'));
   document.querySelectorAll('#navList a').forEach(a => a.addEventListener('click', () => list.classList.remove('open')));
+
+  // Premium subtle scroll-reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && revealEls.length){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in-view'));
+  }
 </script>
 
 </body>

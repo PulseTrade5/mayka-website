@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mayka | Maa Ka Aasra Seva Sansthan — Jodhpur</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Noto+Serif+Devanagari:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Noto+Serif+Devanagari:wght@500;600;700&family=Work+Sans:wght@400;500;600&family=Noto+Sans+Devanagari:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --indigo: #536E8C;
@@ -14,6 +14,8 @@
     --ivory: #F7F3F0;
     --marigold: #C3446D;
     --maroon: #8C2F52;
+    --gold: #C68A3E;
+    --gold-soft: #E9C989;
     --ink: #262A33;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
@@ -31,8 +33,20 @@
   img{max-width:100%; display:block;}
 
   /* ---------- Arch shape, the site's signature motif: the haveli threshold ---------- */
-  .arch{
-    border-radius: 999px 999px 12px 12px;
+  .arch{ border-radius: 999px 999px 12px 12px; }
+  .arch-photo{
+    border-radius: 999px 999px 14px 14px;
+    overflow:hidden;
+    position:relative;
+    background:var(--indigo-deep);
+  }
+  .arch-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .arch-photo::after{
+    content:'';
+    position:absolute; inset:0;
+    box-shadow: inset 0 0 0 1px rgba(251,243,230,0.25);
+    border-radius: 999px 999px 14px 14px;
+    pointer-events:none;
   }
 
   /* ---------- Nav ---------- */
@@ -75,8 +89,8 @@
   .hero{
     position:relative;
     max-width:1100px; margin:0 auto;
-    padding: 70px 24px 90px;
-    display:grid; grid-template-columns: 1.1fr 0.9fr; gap:50px; align-items:center;
+    padding: 60px 24px 90px;
+    display:grid; grid-template-columns: 1.05fr 0.95fr; gap:50px; align-items:center;
   }
   .hero-eyebrow{
     display:inline-flex; align-items:center; gap:8px;
@@ -98,79 +112,90 @@
     font-weight:600; font-size:0.95rem; transition:transform .18s, box-shadow .18s;
   }
   .btn-primary{background:var(--marigold); color:#fff;}
-  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 8px 20px rgba(224,138,44,0.35);}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 8px 20px rgba(140,47,82,0.35);}
   .btn-outline{border:1.5px solid var(--indigo); color:var(--indigo-deep);}
   .btn-outline:hover{background:var(--indigo); color:#fff;}
+  .btn-gold{background:var(--gold); color:#fff;}
+  .btn-gold:hover{transform:translateY(-2px); box-shadow:0 8px 20px rgba(198,138,62,0.4);}
 
   .hero-visual{
     position:relative;
-    height:380px;
-    background: linear-gradient(160deg, var(--indigo) 0%, var(--indigo-deep) 100%);
-    border-radius: 200px 200px 16px 16px;
-    overflow:hidden;
-    box-shadow: 0 30px 60px -20px rgba(20,52,63,0.45);
-  }
-  .hero-visual::before{
-    content:'';
-    position:absolute; inset:18px;
-    border: 1px solid rgba(251,243,230,0.35);
-    border-radius: 190px 190px 10px 10px;
-  }
-  .hero-visual .glow{
-    position:absolute; width:220px; height:220px; border-radius:50%;
-    background: radial-gradient(circle, rgba(224,138,44,0.55), transparent 70%);
-    top:-40px; left:50%; transform:translateX(-50%);
-    animation: pulse 6s ease-in-out infinite;
-  }
-  @keyframes pulse{
-    0%,100%{opacity:0.6; transform:translateX(-50%) scale(1);}
-    50%{opacity:1; transform:translateX(-50%) scale(1.12);}
+    height:420px;
   }
   .hero-visual .quote{
-    position:absolute; bottom:34px; left:32px; right:32px;
-    color:var(--ivory);
+    position:absolute; bottom:26px; left:28px; right:28px;
+    color:var(--ivory); z-index:2;
   }
-  .hero-visual .quote .hi{font-size:1.15rem; line-height:1.6;}
-  .hero-visual .quote small{display:block; margin-top:10px; opacity:0.65; font-size:0.75rem; letter-spacing:0.05em;}
+  .hero-visual .quote .hi{font-size:1.1rem; line-height:1.65; text-shadow:0 2px 12px rgba(0,0,0,0.5);}
+  .hero-visual .quote small{display:block; margin-top:10px; opacity:0.8; font-size:0.72rem; letter-spacing:0.06em; text-shadow:0 2px 8px rgba(0,0,0,0.5);}
+  .hero-visual .veil{
+    position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(30,36,50,0.05) 0%, rgba(30,36,50,0.15) 45%, rgba(30,36,50,0.88) 100%);
+    border-radius: inherit;
+  }
 
   @media (max-width:860px){
-    .hero{grid-template-columns:1fr; padding-top:40px;}
-    .hero-visual{order:-1; height:280px;}
+    .hero{grid-template-columns:1fr; padding-top:36px;}
+    .hero-visual{order:-1; height:300px;}
   }
 
   /* ---------- Section shell ---------- */
-  section{max-width:1100px; margin:0 auto; padding:80px 24px;}
-  .section-head{max-width:640px; margin-bottom:50px;}
+  section{max-width:1100px; margin:0 auto; padding:70px 24px;}
+  .section-head{max-width:640px; margin-bottom:46px;}
   .section-head .eyebrow{
     font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase;
     color:var(--marigold); font-weight:600; margin-bottom:12px; display:block;
   }
   .section-head h2{font-size:clamp(1.6rem,3vw,2.2rem); color:var(--indigo-deep);}
   .section-head p{margin-top:14px; color:#5a5148; font-size:1rem;}
+  .section-head.center{margin-left:auto; margin-right:auto; text-align:center;}
+
+  /* ---------- Story panels: alternating photo + text ---------- */
+  .story-panel{
+    display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px; align-items:center;
+    padding: 46px 0;
+  }
+  .story-panel.rev{grid-template-columns:1.1fr 0.9fr;}
+  .story-panel.rev .story-photo{order:2;}
+  .story-photo .arch-photo{height:320px;}
+  .story-text .eyebrow{
+    font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--marigold); font-weight:600; margin-bottom:12px; display:block;
+  }
+  .story-text h2{font-size:clamp(1.5rem,2.6vw,2rem); color:var(--indigo-deep); margin-bottom:16px;}
+  .story-text p{color:#5a5148; font-size:1rem; max-width:46ch;}
+  .story-text .hi-line{color:var(--maroon); font-size:1.08rem; margin-top:16px; line-height:1.7;}
+  @media (max-width:820px){
+    .story-panel, .story-panel.rev{grid-template-columns:1fr; gap:26px;}
+    .story-panel.rev .story-photo{order:0;}
+    .story-photo .arch-photo{height:240px;}
+  }
 
   /* ---------- About / mission ---------- */
-  .about{background:var(--indigo-deep); color:var(--ivory); border-radius:24px; margin:0 24px; max-width:1052px;}
-  .about-inner{padding:70px 40px; max-width:1100px; margin:0 auto;}
-  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:start;}
+  .about{background:var(--indigo-deep); color:var(--ivory); border-radius:24px; margin:0 24px; max-width:1052px; overflow:hidden;}
+  .about-inner{padding:64px 40px; max-width:1100px; margin:0 auto;}
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;}
   .about h2{color:var(--ivory);}
+  .about .arch-photo{height:280px;}
   .pillars{display:flex; gap:0; margin-top:30px;}
   .pillar{flex:1; padding-right:20px; border-right:1px solid rgba(251,243,230,0.2);}
   .pillar:last-child{border-right:none;}
-  .pillar .num{font-family:'Fraunces',serif; font-size:1.8rem; color:var(--sandstone); display:block; margin-bottom:6px;}
+  .pillar .num{font-family:'Fraunces',serif; font-size:1.8rem; color:var(--gold-soft); display:block; margin-bottom:6px;}
   .pillar span{font-size:0.85rem; opacity:0.75; text-transform:uppercase; letter-spacing:0.06em;}
   .quote-block{
     border-left:3px solid var(--marigold); padding-left:22px;
   }
-  .quote-block .hi{font-size:1.3rem; line-height:1.7; color:var(--ivory);}
+  .quote-block .hi{font-size:1.25rem; line-height:1.7; color:var(--ivory);}
   .quote-block .en{margin-top:14px; font-size:0.92rem; opacity:0.7; font-style:italic;}
   @media (max-width:760px){
     .about-grid{grid-template-columns:1fr;}
-    .about-inner{padding:50px 26px;}
+    .about-inner{padding:46px 26px;}
     .pillars{flex-wrap:wrap; gap:20px;}
     .pillar{flex:1 1 45%; border-right:none; padding-right:0;}
+    .about .arch-photo{height:220px;}
   }
 
-  /* ---------- Services (haveli-arch cards) ---------- */
+  /* ---------- Services (haveli-arch photo cards) ---------- */
   .services-grid{
     display:grid; grid-template-columns:repeat(4,1fr); gap:22px;
   }
@@ -178,24 +203,61 @@
     background:#fff;
     border-top-left-radius:120px; border-top-right-radius:120px;
     border-bottom-left-radius:10px; border-bottom-right-radius:10px;
-    padding:44px 22px 30px;
+    padding:0 22px 30px;
     text-align:center;
     border:1px solid rgba(31,78,95,0.1);
     transition:transform .25s, box-shadow .25s;
+    overflow:hidden;
   }
   .service-card:hover{transform:translateY(-6px); box-shadow:0 20px 40px -18px rgba(31,78,95,0.25);}
-  .service-icon{
-    width:56px; height:56px; margin:0 auto 18px;
-    border-radius:50%;
-    background:linear-gradient(160deg, var(--marigold), var(--maroon));
-    display:flex; align-items:center; justify-content:center;
-    font-size:1.4rem;
+  .service-photo{
+    height:120px; margin:0 -22px 20px;
+    position:relative; overflow:hidden;
+  }
+  .service-photo img{width:100%; height:100%; object-fit:cover;}
+  .service-photo::after{
+    content:'';
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(140,47,82,0.15), rgba(30,36,50,0.55));
+  }
+  .service-photo .glyph{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    font-size:1.6rem; color:#fff; z-index:1;
   }
   .service-card h3{font-size:1.05rem; color:var(--indigo-deep); margin-bottom:10px;}
   .service-card .hi{display:block; color:var(--maroon); font-size:0.95rem; margin-bottom:8px;}
   .service-card p{font-size:0.85rem; color:#6a6156;}
   @media (max-width:900px){.services-grid{grid-template-columns:repeat(2,1fr);}}
   @media (max-width:520px){.services-grid{grid-template-columns:1fr;}}
+
+  /* ---------- Community / togetherness full-bleed ---------- */
+  .community{
+    position:relative;
+    margin-top:70px;
+    min-height:420px;
+    display:flex; align-items:flex-end;
+  }
+  .community img{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;
+  }
+  .community::before{
+    content:'';
+    position:absolute; inset:0;
+    background: linear-gradient(0deg, rgba(30,36,50,0.92) 0%, rgba(30,36,50,0.55) 55%, rgba(30,36,50,0.25) 100%);
+    z-index:1;
+  }
+  .community-inner{
+    position:relative; z-index:2;
+    padding:56px 24px;
+    max-width:1100px; margin:0 auto; width:100%;
+  }
+  .community-inner .eyebrow{
+    font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--gold-soft); font-weight:600; margin-bottom:14px; display:block;
+  }
+  .community-inner h2{color:#fff; font-size:clamp(1.5rem,3vw,2.1rem); max-width:22ch; margin-bottom:16px;}
+  .community-inner p{color:rgba(251,243,230,0.85); max-width:52ch; font-size:1rem;}
+  .community-inner .hi{color:var(--gold-soft); font-size:1.15rem; margin-top:14px; line-height:1.7;}
 
   /* ---------- Trust strip ---------- */
   .trust{
@@ -224,7 +286,7 @@
   .contact-row div strong{display:block; color:var(--indigo-deep); font-size:0.95rem; margin-bottom:2px;}
   .map-note{
     height:100%; min-height:220px;
-    background: repeating-linear-gradient(135deg, rgba(31,78,95,0.06) 0 2px, transparent 2px 14px), var(--indigo-deep);
+    background: linear-gradient(160deg, rgba(30,36,50,0.55), rgba(140,47,82,0.55)), url('https://images.unsplash.com/photo-1578620320260-a880110e6844?w=900&q=70&auto=format&fit=crop') center/cover;
     border-radius:18px; display:flex; align-items:center; justify-content:center; text-align:center; padding:30px;
     color:var(--ivory);
   }
@@ -239,7 +301,6 @@
 
   /* reduced motion */
   @media (prefers-reduced-motion: reduce){
-    .glow{animation:none;}
     html{scroll-behavior:auto;}
   }
 
@@ -274,11 +335,26 @@
       <a href="https://instagram.com/mayka_maakaaasra" target="_blank" rel="noopener" class="btn btn-outline">Follow the Journey</a>
     </div>
   </div>
-  <div class="hero-visual">
-    <div class="glow"></div>
+  <div class="hero-visual arch-photo">
+    <img src="https://images.unsplash.com/photo-1578620320260-a880110e6844?w=900&q=80&auto=format&fit=crop" alt="A woman standing at a doorway, lit by soft light — a threshold to safety">
+    <div class="veil"></div>
     <div class="quote">
       <p class="hi">हर बेटी को ऐसा ठिकाना मिले,<br>जहाँ उसकी मजबूरी नहीं,<br>उसकी हिम्मत देखी जाए।</p>
       <small>MAYKA · SEVA SANSTHAN, JODHPUR</small>
+    </div>
+  </div>
+</section>
+
+<section aria-label="Her story">
+  <div class="story-panel">
+    <div class="story-photo arch-photo">
+      <img src="https://images.unsplash.com/photo-1754894421787-e654fb40fa0a?w=800&q=80&auto=format&fit=crop" alt="Two hands reaching out and holding each other in support">
+    </div>
+    <div class="story-text">
+      <span class="eyebrow">Every Story Begins Here</span>
+      <h2>She doesn't arrive needing pity. She arrives needing a door that opens.</h2>
+      <p>Most women who reach Mayka have already been carrying more than anyone should. What we offer first isn't a program — it's a hand held, a room made ready, and the quiet message that she is safe now.</p>
+      <p class="hi-line">पहला कदम अकेला नहीं उठाना पड़ता।</p>
     </div>
   </div>
 </section>
@@ -296,10 +372,27 @@
           <div class="pillar"><span class="num">💜</span><span>Strength<br>शक्ति</span></div>
         </div>
       </div>
-      <div class="quote-block">
-        <p class="hi">"टूटे हुए हौसलों को फिर से उड़ान सिखाते हैं,<br>हर बेटी मुस्कुराये यही हमारा संकल्प है।"</p>
-        <p class="en">We teach broken spirits to fly again — every daughter's smile is our resolve.</p>
+      <div class="arch-photo">
+        <img src="https://images.unsplash.com/photo-1551747777-dd3f2c0b9213?w=800&q=75&auto=format&fit=crop" alt="Warm golden light at dawn, symbolising hope and a new beginning">
       </div>
+    </div>
+    <div class="quote-block" style="margin-top:40px;">
+      <p class="hi">"टूटे हुए हौसलों को फिर से उड़ान सिखाते हैं,<br>हर बेटी मुस्कुराये यही हमारा संकल्प है।"</p>
+      <p class="en">We teach broken spirits to fly again — every daughter's smile is our resolve.</p>
+    </div>
+  </div>
+</section>
+
+<section aria-label="How support unfolds">
+  <div class="story-panel rev">
+    <div class="story-photo arch-photo">
+      <img src="https://images.unsplash.com/photo-1731848358154-52ebc3c4d590?w=800&q=80&auto=format&fit=crop" alt="A group of women standing together, side by side">
+    </div>
+    <div class="story-text">
+      <span class="eyebrow">What Happens Next</span>
+      <h2>Slowly, a room becomes a home — and a stranger becomes family.</h2>
+      <p>Counselling helps her breathe again. Skills training gives her hands purpose. And somewhere along the way, the women around her stop being fellow residents and start being sisters.</p>
+      <p class="hi-line">अकेलापन जाता है, अपनापन आता है।</p>
     </div>
   </div>
 </section>
@@ -312,82 +405,55 @@
   </div>
   <div class="services-grid">
     <div class="service-card">
-      <div class="service-icon">🏠</div>
+      <div class="service-photo">
+        <img src="https://images.unsplash.com/photo-1578620320260-a880110e6844?w=400&q=70&auto=format&fit=crop" alt="">
+        <span class="glyph">🏠</span>
+      </div>
       <span class="hi">सुरक्षित आश्रय</span>
       <h3>Safe Shelter</h3>
       <p>A home-like environment, not an institution.</p>
     </div>
     <div class="service-card">
-      <div class="service-icon">💬</div>
+      <div class="service-photo">
+        <img src="https://images.unsplash.com/photo-1754894421787-e654fb40fa0a?w=400&q=70&auto=format&fit=crop" alt="">
+        <span class="glyph">💬</span>
+      </div>
       <span class="hi">परामर्श सहायता</span>
       <h3>Counselling Support</h3>
       <p>Mental and emotional support to heal and rebuild.</p>
     </div>
     <div class="service-card">
-      <div class="service-icon">📚</div>
+      <div class="service-photo">
+        <img src="https://images.unsplash.com/photo-1551747777-dd3f2c0b9213?w=400&q=70&auto=format&fit=crop" alt="">
+        <span class="glyph">📚</span>
+      </div>
       <span class="hi">शिक्षा एवं प्रशिक्षण</span>
       <h3>Education & Training</h3>
       <p>Skills and learning that lead toward self-reliance.</p>
     </div>
     <div class="service-card">
-      <div class="service-icon">💪</div>
+      <div class="service-photo">
+        <img src="https://images.unsplash.com/photo-1731848358154-52ebc3c4d590?w=400&q=70&auto=format&fit=crop" alt="">
+        <span class="glyph">💪</span>
+      </div>
       <span class="hi">महिला सशक्तिकरण</span>
       <h3>Women Empowerment</h3>
       <p>A fresh start, built with dignity and respect.</p>
     </div>
   </div>
+</section>
 
+<div class="community">
+  <img src="https://images.unsplash.com/photo-1731848358154-52ebc3c4d590?w=1600&q=75&auto=format&fit=crop" alt="A community of women standing together in solidarity">
+  <div class="community-inner">
+    <span class="eyebrow">Together, We Are Stronger</span>
+    <h2>Behind every woman who stands again, there's a circle that never let go.</h2>
+    <p>Donors, volunteers, and neighbours in Jodhpur make this circle possible. Every meal served, every skill taught, every hand held — it happens because someone chose to show up.</p>
+    <p class="hi">जब सब साथ हों, तो कोई अकेला नहीं गिरता।</p>
+  </div>
+</div>
+
+<section>
   <div class="trust">
     <p>Follow @mayka_maakaaasra for stories, updates and ways to help.</p>
-    <a href="https://instagram.com/mayka_maakaaasra" target="_blank" rel="noopener" class="btn btn-primary">Visit Instagram</a>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="section-head">
-    <span class="eyebrow">Get in Touch</span>
-    <h2>Reach Mayka Seva Sansthan</h2>
-    <p>Whether you need shelter, want to volunteer, or wish to support our work — we're here.</p>
-  </div>
-  <div class="contact-grid">
-    <div class="contact-card">
-      <h3>Contact Details</h3>
-      <div class="contact-row">
-        <div class="ic">📍</div>
-        <div><strong>Location</strong><p>Jodhpur, Rajasthan, India</p></div>
-      </div>
-      <div class="contact-row">
-        <div class="ic">📷</div>
-        <div><strong>Instagram</strong><p>@mayka_maakaaasra</p></div>
-      </div>
-      <div class="contact-row">
-        <div class="ic">📞</div>
-        <div><strong>Phone / WhatsApp</strong><p>Add your contact number here</p></div>
-      </div>
-      <div class="contact-row">
-        <div class="ic">✉️</div>
-        <div><strong>Email</strong><p>contact@mayakaakaaasra.in</p></div>
-      </div>
-      <a href="https://instagram.com/mayka_maakaaasra" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:10px;">Message on Instagram</a>
-    </div>
-    <div class="map-note">
-      <p>Add a Google Maps embed or your registered office address here.</p>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <strong>Mayka — Maa Ka Aasra Seva Sansthan</strong><br>
-  Jodhpur, Rajasthan · A Safe Place for Every Woman<br>
-  © 2026 Mayka Seva Sansthan. All rights reserved.
-</footer>
-
-<script>
-  const toggle = document.getElementById('navToggle');
-  const list = document.getElementById('navList');
-  toggle.addEventListener('click', () => list.classList.toggle('open'));
-  document.querySelectorAll('#navList a').forEach(a => a.addEventListener('click', () => list.classList.remove('open')));
-</script>
-
-</body>
-</html>
+    <a href="https://i

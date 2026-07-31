@@ -122,17 +122,6 @@
     position:relative;
     height:420px;
   }
-  .hero-visual .quote{
-    position:absolute; bottom:26px; left:28px; right:28px;
-    color:var(--ivory); z-index:2;
-  }
-  .hero-visual .quote .hi{font-size:1.1rem; line-height:1.65; text-shadow:0 2px 12px rgba(0,0,0,0.5);}
-  .hero-visual .quote small{display:block; margin-top:10px; opacity:0.8; font-size:0.72rem; letter-spacing:0.06em; text-shadow:0 2px 8px rgba(0,0,0,0.5);}
-  .hero-visual .veil{
-    position:absolute; inset:0;
-    background: linear-gradient(180deg, rgba(30,36,50,0.05) 0%, rgba(30,36,50,0.15) 45%, rgba(30,36,50,0.88) 100%);
-    border-radius: inherit;
-  }
 
   @media (max-width:860px){
     .hero{grid-template-columns:1fr; padding-top:36px;}
@@ -237,15 +226,6 @@
     min-height:420px;
     display:flex; align-items:flex-end;
   }
-  .community img{
-    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;
-  }
-  .community::before{
-    content:'';
-    position:absolute; inset:0;
-    background: linear-gradient(0deg, rgba(30,36,50,0.92) 0%, rgba(30,36,50,0.55) 55%, rgba(30,36,50,0.25) 100%);
-    z-index:1;
-  }
   .community-inner{
     position:relative; z-index:2;
     padding:56px 24px;
@@ -286,7 +266,7 @@
   .contact-row div strong{display:block; color:var(--indigo-deep); font-size:0.95rem; margin-bottom:2px;}
   .map-note{
     height:100%; min-height:220px;
-    background: linear-gradient(160deg, rgba(30,36,50,0.55), rgba(140,47,82,0.55)), url('https://images.unsplash.com/photo-1578620320260-a880110e6844?w=900&q=70&auto=format&fit=crop') center/cover;
+    background: linear-gradient(160deg, var(--indigo-deep), var(--maroon));
     border-radius:18px; display:flex; align-items:center; justify-content:center; text-align:center; padding:30px;
     color:var(--ivory);
   }
@@ -335,125 +315,5 @@
       <a href="https://instagram.com/mayka_maakaaasra" target="_blank" rel="noopener" class="btn btn-outline">Follow the Journey</a>
     </div>
   </div>
-  <div class="hero-visual arch-photo">
-    <img src="https://images.unsplash.com/photo-1578620320260-a880110e6844?w=900&q=80&auto=format&fit=crop" alt="A woman standing at a doorway, lit by soft light — a threshold to safety">
-    <div class="veil"></div>
-    <div class="quote">
-      <p class="hi">हर बेटी को ऐसा ठिकाना मिले,<br>जहाँ उसकी मजबूरी नहीं,<br>उसकी हिम्मत देखी जाए।</p>
-      <small>MAYKA · SEVA SANSTHAN, JODHPUR</small>
-    </div>
-  </div>
-</section>
-
-<section aria-label="Her story">
-  <div class="story-panel">
-    <div class="story-photo arch-photo">
-      <img src="https://images.unsplash.com/photo-1754894421787-e654fb40fa0a?w=800&q=80&auto=format&fit=crop" alt="Two hands reaching out and holding each other in support">
-    </div>
-    <div class="story-text">
-      <span class="eyebrow">Every Story Begins Here</span>
-      <h2>She doesn't arrive needing pity. She arrives needing a door that opens.</h2>
-      <p>Most women who reach Mayka have already been carrying more than anyone should. What we offer first isn't a program — it's a hand held, a room made ready, and the quiet message that she is safe now.</p>
-      <p class="hi-line">पहला कदम अकेला नहीं उठाना पड़ता।</p>
-    </div>
-  </div>
-</section>
-
-<section id="about" class="about">
-  <div class="about-inner">
-    <div class="about-grid">
-      <div>
-        <span class="hero-eyebrow" style="color:var(--sandstone);">Our Mission</span>
-        <h2>Not just a shelter — a new family.</h2>
-        <p style="margin-top:16px; opacity:0.85; max-width:44ch;">यह सिर्फ़ एक संस्था नहीं, बल्कि उन महिलाओं के लिए एक नया परिवार है, जिन्हें जीवन में सहारे की ज़रूरत है।</p>
-        <div class="pillars">
-          <div class="pillar"><span class="num">🏠</span><span>Shelter<br>आश्रय</span></div>
-          <div class="pillar"><span class="num">🤝</span><span>Support<br>सहयोग</span></div>
-          <div class="pillar"><span class="num">💜</span><span>Strength<br>शक्ति</span></div>
-        </div>
-      </div>
-      <div class="arch-photo">
-        <img src="https://images.unsplash.com/photo-1551747777-dd3f2c0b9213?w=800&q=75&auto=format&fit=crop" alt="Warm golden light at dawn, symbolising hope and a new beginning">
-      </div>
-    </div>
-    <div class="quote-block" style="margin-top:40px;">
-      <p class="hi">"टूटे हुए हौसलों को फिर से उड़ान सिखाते हैं,<br>हर बेटी मुस्कुराये यही हमारा संकल्प है।"</p>
-      <p class="en">We teach broken spirits to fly again — every daughter's smile is our resolve.</p>
-    </div>
-  </div>
-</section>
-
-<section aria-label="How support unfolds">
-  <div class="story-panel rev">
-    <div class="story-photo arch-photo">
-      <img src="https://images.unsplash.com/photo-1731848358154-52ebc3c4d590?w=800&q=80&auto=format&fit=crop" alt="A group of women standing together, side by side">
-    </div>
-    <div class="story-text">
-      <span class="eyebrow">What Happens Next</span>
-      <h2>Slowly, a room becomes a home — and a stranger becomes family.</h2>
-      <p>Counselling helps her breathe again. Skills training gives her hands purpose. And somewhere along the way, the women around her stop being fellow residents and start being sisters.</p>
-      <p class="hi-line">अकेलापन जाता है, अपनापन आता है।</p>
-    </div>
-  </div>
-</section>
-
-<section id="services">
-  <div class="section-head">
-    <span class="eyebrow">What We Offer</span>
-    <h2>Four pillars of Mayka's care</h2>
-    <p>From the first day of arrival to standing independently — every stage is walked together.</p>
-  </div>
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="service-photo">
-        <img src="https://images.unsplash.com/photo-1578620320260-a880110e6844?w=400&q=70&auto=format&fit=crop" alt="">
-        <span class="glyph">🏠</span>
-      </div>
-      <span class="hi">सुरक्षित आश्रय</span>
-      <h3>Safe Shelter</h3>
-      <p>A home-like environment, not an institution.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-photo">
-        <img src="https://images.unsplash.com/photo-1754894421787-e654fb40fa0a?w=400&q=70&auto=format&fit=crop" alt="">
-        <span class="glyph">💬</span>
-      </div>
-      <span class="hi">परामर्श सहायता</span>
-      <h3>Counselling Support</h3>
-      <p>Mental and emotional support to heal and rebuild.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-photo">
-        <img src="https://images.unsplash.com/photo-1551747777-dd3f2c0b9213?w=400&q=70&auto=format&fit=crop" alt="">
-        <span class="glyph">📚</span>
-      </div>
-      <span class="hi">शिक्षा एवं प्रशिक्षण</span>
-      <h3>Education & Training</h3>
-      <p>Skills and learning that lead toward self-reliance.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-photo">
-        <img src="https://images.unsplash.com/photo-1731848358154-52ebc3c4d590?w=400&q=70&auto=format&fit=crop" alt="">
-        <span class="glyph">💪</span>
-      </div>
-      <span class="hi">महिला सशक्तिकरण</span>
-      <h3>Women Empowerment</h3>
-      <p>A fresh start, built with dignity and respect.</p>
-    </div>
-  </div>
-</section>
-
-<div class="community">
-  <img src="https://images.unsplash.com/photo-1731848358154-52ebc3c4d590?w=1600&q=75&auto=format&fit=crop" alt="A community of women standing together in solidarity">
-  <div class="community-inner">
-    <span class="eyebrow">Together, We Are Stronger</span>
-    <h2>Behind every woman who stands again, there's a circle that never let go.</h2>
-    <p>Donors, volunteers, and neighbours in Jodhpur make this circle possible. Every meal served, every skill taught, every hand held — it happens because someone chose to show up.</p>
-    <p class="hi">जब सब साथ हों, तो कोई अकेला नहीं गिरता।</p>
-  </div>
-</div>
-
-<section>
-  <div class="trust">
-    <p>Follow @mayka_maakaaasra for stories, updates and ways to help.</p>
-    <a href="https://i
+  <div class="hero-visual arch-photo" style="height:340px;">
+    <img src="data:image/jpeg;base64,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

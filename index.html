@@ -272,6 +272,30 @@
   }
   @media (max-width:760px){.contact-grid{grid-template-columns:1fr;}}
 
+  /* ---------- FAQ accordion ---------- */
+  .faq-list{max-width:760px; margin:0 auto;}
+  .faq-item{
+    background:#fff; border:1px solid rgba(31,78,95,0.12);
+    border-radius:12px; margin-bottom:12px; overflow:hidden;
+  }
+  .faq-item summary{
+    list-style:none; cursor:pointer;
+    padding:20px 22px; display:flex; align-items:center; justify-content:space-between; gap:16px;
+    font-family:'Fraunces',serif; font-weight:600; color:var(--indigo-deep); font-size:1.02rem;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary .plus{
+    flex-shrink:0; width:26px; height:26px; border-radius:50%;
+    background:var(--ivory); border:1px solid rgba(31,78,95,0.2);
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.1rem; color:var(--marigold); transition:transform .25s;
+  }
+  .faq-item[open] summary .plus{transform:rotate(45deg);}
+  .faq-item .faq-answer{padding:0 22px 22px; color:#5a5148; font-size:0.95rem; max-width:64ch;}
+  .faq-item .faq-answer .hi{display:block; color:var(--maroon); margin-top:8px; font-size:0.92rem;}
+
+  /* ---------- FAQ accordion end ---------- */
+
   /* ---------- Footer ---------- */
   footer{
     background:var(--indigo-deep); color:rgba(251,243,230,0.7);
@@ -299,6 +323,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#donate">Donate</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="https://instagram.com/mayka_maakaaasra" target="_blank" rel="noopener">Instagram ↗</a></li>
       </ul>
@@ -477,6 +502,64 @@
 
   <div style="text-align:center; margin-top:36px;">
     <a href="#contact" class="btn btn-gold">Donate Now</a>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="section-head center">
+    <span class="eyebrow">Common Questions</span>
+    <h2>Frequently Asked Questions</h2>
+    <p>Answers to what people usually ask us.</p>
+  </div>
+
+  <div class="faq-list">
+    <details class="faq-item" open>
+      <summary>How can a woman get shelter at Mayka? <span class="plus">+</span></summary>
+      <div class="faq-answer">
+        Reach out to us directly through Instagram, phone, or email, and our team will guide you through the process confidentially and without judgement.
+        <span class="hi">आश्रय पाने के लिए हमसे सीधे संपर्क करें, पूरी प्रक्रिया गोपनीय रखी जाती है।</span>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Is there any cost to stay at the shelter? <span class="plus">+</span></summary>
+      <div class="faq-answer">
+        No. Shelter, meals, and basic support are provided free of cost. Mayka runs on donations and community support.
+        <span class="hi">आश्रय और भोजन पूर्णतः निःशुल्क है, यह दान और सहयोग से चलता है।</span>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Is my identity kept private and safe? <span class="plus">+</span></summary>
+      <div class="faq-answer">
+        Yes, complete confidentiality is maintained. Personal details are never shared without consent.
+        <span class="hi">आपकी पहचान पूरी तरह गोपनीय रखी जाती है।</span>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Can I volunteer or visit in person? <span class="plus">+</span></summary>
+      <div class="faq-answer">
+        Yes, we welcome volunteers. Message us on Instagram or email us, and our team will share how you can get involved.
+        <span class="hi">आप स्वयंसेवक के रूप में जुड़ सकते हैं, हमसे संपर्क करें।</span>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>How is my donation used? <span class="plus">+</span></summary>
+      <div class="faq-answer">
+        Donations go directly toward shelter costs, meals, counselling, and skills training for the women in our care.
+        <span class="hi">आपका दान आश्रय, भोजन, परामर्श और प्रशिक्षण पर सीधे खर्च होता है।</span>
+      </div>
+    </details>
+
+    <details class="faq-item">
+      <summary>Do you help women outside Jodhpur too? <span class="plus">+</span></summary>
+      <div class="faq-answer">
+        Our shelter is based in Jodhpur, Rajasthan. Contact us and we'll do our best to guide you, wherever you are.
+        <span class="hi">हमारा आश्रय जोधपुर में है, संपर्क करने पर हम पूरी सहायता करने का प्रयास करते हैं।</span>
+      </div>
+    </details>
   </div>
 </section>
 
